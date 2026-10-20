@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projekt IoT – Internet of Things</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="IoT_Wykres_Gantta.css">
+  <script src="IoT_Wykres_Gantta.js" defer></script>
+</head>
+
+<body>
+<div class="container">
+
+  <header>
+    <div class="header-left">
+      <p class="label-tag">Projekt uczelniany · IoT · Internet of Things</p>
+      <h1>Internet <em>Of Things</em></h1>
+      <p class="subtitle">20 października – 31 grudnia 2026 · Harmonogram projektu</p>
+    </div>
+    <div class="target-badge">IoT</div>
+  </header>
+
+  <div class="overall-progress">
+    <div class="overall-label">Postęp projektu</div>
+    <div class="overall-bar">
+      <div class="overall-fill" id="overallFill"></div>
+    </div>
+    <div class="overall-pct" id="overallPct">0%</div>
+  </div>
+
+  <div class="gantt-wrap">
+    <div class="gantt-header">
+      <div class="gantt-header-label">Etap projektu</div>
+
+      <div class="gantt-header-label">
+        <div class="weeks-row">
+          <span class="week-label">20 paź</span>
+          <span class="week-label">27 paź</span>
+          <span class="week-label">3 lis</span>
+          <span class="week-label">10 lis</span>
+          <span class="week-label">17 lis</span>
+          <span class="week-label">24 lis</span>
+          <span class="week-label">1 gru</span>
+          <span class="week-label">8 gru</span>
+          <span class="week-label">15 gru</span>
+          <span class="week-label">22 gru</span>
+          <span class="week-label">29 gru</span>
+        </div>
+      </div>
+
+      <div class="gantt-header-label gantt-header-label--right">KTO CO ROBI</div>
+    </div>
+
+    <div id="gantt"></div>
+  </div>
+
+  <p class="label-tag section-label">
+    Zależności między zadaniami · ścieżka krytyczna
+  </p>
+
+  <section class="network-wrap" aria-labelledby="network-title">
+    <div class="network-heading">
+      <div>
+        <h2 id="network-title">Harmonogram sieciowy</h2>
+        <p>Strzałki pokazują kolejność i zależności między etapami.</p>
+      </div>
+      <div class="network-legend" aria-label="Legenda">
+        <span><i class="legend-line legend-line--critical"></i> Ścieżka krytyczna</span>
+        <span><i class="legend-line"></i> Gałąź równoległa</span>
+      </div>
+    </div>
+
+    <div class="network-scroll" tabindex="0" aria-label="Diagram można przewijać poziomo">
+      <svg class="network-diagram" viewBox="0 0 1000 350" role="img"
+           aria-labelledby="network-svg-title network-svg-description">
+        <title id="network-svg-title">Sieć zależności zadań projektu IoT</title>
+        <desc id="network-svg-description">
+          Analiza tematu, badania i opracowanie treści prowadzą do dwóch równoległych zadań:
+          prezentacji oraz strony internetowej. Testy i finalizacja rozpoczynają się po obu.
+          Ścieżka krytyczna przebiega przez stronę internetową.
+        </desc>
+        <defs>
+          <marker id="network-arrow-critical" markerWidth="8" markerHeight="8"
+                  refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#c8410a"></path>
+          </marker>
+          <marker id="network-arrow" markerWidth="8" markerHeight="8"
+                  refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#b8b2a8"></path>
+          </marker>
+        </defs>
+
+        <g class="network-edge network-edge--critical">
+          <path d="M190 175 H225" marker-end="url(#network-arrow-critical)"></path>
+          <path d="M390 175 H425" marker-end="url(#network-arrow-critical)"></path>
+          <path d="M590 175 H610 V265 H625" marker-end="url(#network-arrow-critical)"></path>
+          <path d="M795 265 H815 V195 H835" marker-end="url(#network-arrow-critical)"></path>
+        </g>
+        <g class="network-edge">
+          <path d="M590 175 H610 V85 H625" marker-end="url(#network-arrow)"></path>
+          <path d="M795 85 H815 V155 H835" marker-end="url(#network-arrow)"></path>
+        </g>
+
+        <g class="network-node network-node--critical">
+          <rect x="20" y="130" width="170" height="90" rx="10"></rect>
+          <text class="network-number" x="36" y="153">01 · 7 DNI</text>
+          <text class="network-name" x="36" y="179">Analiza tematu</text>
+          <text class="network-date" x="36" y="200">20–27 paź</text>
+        </g>
+        <g class="network-node network-node--critical">
+          <rect x="225" y="130" width="165" height="90" rx="10"></rect>
+          <text class="network-number" x="241" y="153">02 · 10 DNI</text>
+          <text class="network-name" x="241" y="179">Badania i źródła</text>
+          <text class="network-date" x="241" y="200">27 paź – 6 lis</text>
+        </g>
+        <g class="network-node network-node--critical">
+          <rect x="425" y="130" width="165" height="90" rx="10"></rect>
+          <text class="network-number" x="441" y="153">03 · 10 DNI</text>
+          <text class="network-name" x="441" y="179">Opracowanie treści</text>
+          <text class="network-date" x="441" y="200">6–16 lis</text>
+        </g>
+        <g class="network-node">
+          <rect x="625" y="40" width="170" height="90" rx="10"></rect>
+          <text class="network-number" x="641" y="63">04 · 10 DNI</text>
+          <text class="network-name" x="641" y="89">Prezentacja</text>
+          <text class="network-date" x="641" y="110">16–26 lis</text>
+        </g>
+        <g class="network-node network-node--critical">
+          <rect x="625" y="220" width="170" height="90" rx="10"></rect>
+          <text class="network-number" x="641" y="243">05 · 20 DNI</text>
+          <text class="network-name" x="641" y="269">Strona internetowa</text>
+          <text class="network-date" x="641" y="290">20 lis – 10 gru</text>
+        </g>
+        <g class="network-node network-node--critical">
+          <rect x="835" y="130" width="150" height="90" rx="10"></rect>
+          <text class="network-number" x="851" y="153">06 · 22 DNI</text>
+          <text class="network-name" x="851" y="179">Testy i finalizacja</text>
+          <text class="network-date" x="851" y="200">10–31 gru</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="network-summary">
+      <strong>Ścieżka krytyczna:</strong>
+      Analiza tematu → Badania i źródła → Opracowanie treści → Strona internetowa → Testy i finalizacja.
+      <span>      Łączny czas zadań na tej ścieżce: 69 dni. Prezentacja biegnie równolegle i musi być gotowa przed testami końcowymi.</span>
+    </div>
+  </section>
+
+  <p class="label-tag section-label">
+    Zakres projektu · Internet Of Things w codziennym życiu
+  </p>
+
+  <div class="topics-grid" id="topics"></div>
+
+  <div class="tip-box">
+    <strong>Cel projektu – IoT jako kreator codziennego życia:</strong>
+
+    <div class="tip-grid">
+      <div class="tip-item">
+        Wyjaśnienie pojęcia Internetu rzeczy i sposobu komunikacji urządzeń.
+      </div>
+      <div class="tip-item">
+        Przedstawienie zastosowań IoT w inteligentnych domach, medycynie i transporcie.
+      </div>
+      <div class="tip-item">
+        Omówienie automatyzacji, wygody oraz oszczędności energii i zasobów.
+      </div>
+      <div class="tip-item">
+        Analiza zagrożeń związanych z prywatnością, bezpieczeństwem i awariami.
+      </div>
+      <div class="tip-item">
+        Przygotowanie prezentacji multimedialnej z przykładami i bibliografią.
+      </div>
+      <div class="tip-item">
+        Wykonanie, przetestowanie i poprawienie strony internetowej do grudnia.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    projekt IoT · wykres Gantta · harmonogram październik–grudzień 2026
+  </footer>
+</div>
+
+
+
+</body>
+</html>
